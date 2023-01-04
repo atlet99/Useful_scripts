@@ -1,0 +1,2 @@
+echo "- - -" > /sys/class/scsi_host/host0/scan
+echo "- - -" > /sys/class/scsi_host/host1/scan
