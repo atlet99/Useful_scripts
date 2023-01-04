@@ -1,2 +1,2 @@
 #!/bin/bash
-dmidecode | grep Product | awk 'NR == 1'
+dmidecode | grep Product | head -2
