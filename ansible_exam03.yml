@@ -33,7 +33,9 @@
         - mariadb
 
     - name: Delete all files from nginx default directories
-      shell: 'rm -rf /usr/share/nginx/html/*'
+      shell: 
+        cmd: 'rm -rf /usr/share/nginx/html/*'
+        warn: no
 
     - name: Download archive files
       unarchive:
