@@ -44,12 +44,12 @@
     - name: Replace some DB details via lineinfile
       replace:
         path: /usr/share/nginx/html/index.php
-        regexp: "{{ item.old }}"
-        replace: "{{ item.new }}"
+        regexp: '{{ item.old }}'
+        replace: '{{ item.new }}'
       with_items:
-        - { old: '\$database.*', new: '$database = "mydb"' }
-        - { old: '\$username.*', new: '$username = "myuser"' }
-        - { old: '\$password.*', new: '$password = "mypassword"' }
+        - { old: '\$database.*', new: '$database = "mydb";' }
+        - { old: '\$username.*', new: '$username = "myuser";' }
+        - { old: '\$password.*', new: '$password = "mypassword";' }
 
     - name: Restart Nginx Service
       service:
