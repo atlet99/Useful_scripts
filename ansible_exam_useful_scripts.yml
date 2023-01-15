@@ -1,3 +1,19 @@
+###Create a playbook ~/playbooks/add_users.yml
+
+# Add an entry for node00 in ~/playbooks/inventory file.
+# IP address of node00 host is 172.20.1.100 and SSH user and password is root and Passw0rd.
+# We have a list of users in ~/playbooks/data/users.yml file.
+# There are two groups in there admins and developers which have list of different users.
+# Create a playbook ~/playbooks/add_users.yml to perform below given tasks on node00 node:
+# a. Add all users given in users.yml on node00.
+
+# b. Make sure home directory for all users under developers group is /var/www and for admins it should be default.
+
+# c. Set password d3v3l0p3r for all users under developers group and adm$n$ for users under admins group. Make sure to use Ansible vault to encrypt the passwords, use ~/playbooks/secrets/vault.txt file as vault secret file.
+
+# d. All users under admins group must be added as sudo user, for that simply make them member of wheel group on node00
+
+
 ---
 - hosts: node00
   gather_facts: no
@@ -43,3 +59,13 @@ node02 ansible_host=172.20.1.102 ansible_user=root ansible_ssh_pass=Passw0rd
 ###Create vault password for admins and developers
 ansible-vault encrypt_string secrets/vault.txt 'd3v3l0p3r' --name developer_pass
 ansible-vault encrypt_string secrets/vault.txt 'adm$n$' --name admin_pass
+
+###View data/users.yml
+admins:
+  - rob
+  - david
+  - joy
+
+developers:
+  - tim
+  - ray
