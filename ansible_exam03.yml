@@ -1,0 +1,37 @@
+###Create database.yml playbook and add below given code
+---
+- name: Create DB and Web Server
+  hosts: node02
+  tasks:
+    - name: Start Nginx and MariaDB Services
+      service:
+        name: "{{ item }}"
+        state: started
+      with_items:
+        - nginx
+        - mariadb
+
+    - name: Delete all files from nginx default directories
+      shell: 'rm -rf /usr/share/nginx/html/*'
+
+    - name: Download archive files
+      unarchive:
+        src: https://github.com/indercodes/ansible-1100-mock-nginx/raw/master/index.php.zip
+        dest: /usr/share/nginx/html/
+        remote_src: yes
+
+    - name: Replace some DB details via lineinfile
+      replace:
+        path: /usr/share/nginx/html/index.php
+        regexp: "{{ item.old }}"
+        replace: "{{ item.new }}"
+      with_items:
+        - { old: '\$database.*', new: '$database = "mydb"' }
+        - { old: '\$username.*', new: '$username = "myuser"' }
+        - { old: '\$password.*', new: '$password = "mypassword"' }
+
+    - name: Restart Nginx Service
+      service:
+        name: nginx
+        state: restarted
+        enabled: yes
