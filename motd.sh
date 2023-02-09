@@ -1,25 +1,27 @@
 #!/bin/bash
 
+#Attention! It doesn't work for older (depreciate) OS version like a 5,6 (RHEL-based)
+
 # Get the hostname
 hostname=$(hostname)
 
 # Get the IP address
-ip_address=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
+ip_address=$(ip addr | grep 'UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 
 # Get the uptime in a human-readable format
 uptime=$(uptime --pretty)
 
 # Get the operating system information
-os_info=$(grep PRETTY_NAME /etc/*-release | awk -F'=' '{print $2}' | tr -d '"')
+os_info=$(grep PRETTY_NAME /etc/*release | awk -F'=' '{print $2}' | tr -d '"')
 
 # Define the message to display
 message="
 Welcome to the Linux Server!
 
 Hostname: $hostname
-IP Address: $ip_address
-Uptime: $uptime
-Operating System: $os_info
+    IP Address: $ip_address
+        Uptime: $uptime
+            Operating System: $os_info
 
 Here are some important tips:
 - Please be respectful and considerate of other users.
@@ -30,7 +32,7 @@ Enjoy your work and have a great day!
 "
 
 # Backup the current MOTD
-cp /etc/motd /etc/motd.bak
+cp /etc/motd /root/motd.bak
 
 # Add the message to the MOTD
 echo "$message" >> /etc/motd
