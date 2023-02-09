@@ -34,14 +34,6 @@
     restart_policy: always
   when: nginx_check_result.rc == 0
 
-- name: Configure Nexus Server
-  template:
-    src: nexus.conf.j2
-    dest: /app/nexus/nexus.conf
-    owner: root
-    group: root
-    mode: 0644
-
 - name: Start Nexus Server Docker Container
   docker_container:
     name: nexus_server
