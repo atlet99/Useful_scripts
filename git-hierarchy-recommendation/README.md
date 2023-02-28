@@ -83,6 +83,18 @@ It will be abstract info, but I don't know that write me here. If you have an id
     ```
     git show
     ```
+  - To create a new tag in Git, you can use the git tag command, followed by the name of the tag and the commit hash that you want to tag. For example, to create a new tag called "v1.0" at the most recent commit in your repository, you can use the following command:
+    ```
+    git tag v1.0 HEAD
+    ```
+  - To push the "v1.0" tag to the remote repository, you can use the following command:
+    ```
+    git push origin v1.0
+    ```
+  - You can also list all of the tags in your repository using the git tag command:
+    ```
+    git tag
+    ```
 
 
 ## A little bit about best practices for README.md files
