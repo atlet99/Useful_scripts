@@ -40,6 +40,8 @@ It will be abstract info, but I don't know that write me here.
 |    |—— disk_scan_for_the_empty_space.txt
 |    |—— get_empty_disk.sh
 |    |—— get_empty_disk_first_8.sh
+|    |—— lv_vg_extend.sh
+|    |—— new_add_physical_disk_and_mount.sh
 |    |—— new_get_empty_disk.sh
 |—— fdisk_without_interactive.sh
 |—— folder_transfer_with_all_priviligies_dates_etc.txt
