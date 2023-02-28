@@ -46,6 +46,8 @@ It will be abstract info, but I don't know that write me here.
 |—— fdisk_without_interactive.sh
 |—— folder_transfer_with_all_priviligies_dates_etc.txt
 |—— generate_encrypted_password_via_openssl_passwd.txt
+|—— git-hierarchy-recommendation
+|    |—— README.md
 |—— import_proxy_settings.sh
 |—— motd.sh
 |—— network-scripts
