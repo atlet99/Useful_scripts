@@ -5,7 +5,7 @@ It will be abstract info, but I don't know that write me here. If you have an id
 ## Paper Information
 - Title: Default project
 - Author: Someone else
-- Ticket: Here's a link
+- Ticket: [Here's a link](https://github.com/atlet99/Useful_scripts/tree/main/git-hierarchy-recommendation)
 - Ticket short description: Here's short info about project and IT Owner Division
 
 ##  Tips for create default project
