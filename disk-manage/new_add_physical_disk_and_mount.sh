@@ -4,7 +4,7 @@
 partitions=$(lsblk | awk '$6 == "disk" {print $1}')
 
 # Prompt the user to display the available partitions
-read -p "Do you want to display the available partitions? (yes/no) " display_partitions
+read -p "Do you want to display the available partitions? (yes/no): " display_partitions
 
 # If the user wants to display the available partitions
 if [[ "$display_partitions" == "yes" ]]; then
@@ -25,8 +25,7 @@ if [[ "$display_partitions" == "yes" ]]; then
   done
 fi
 
-# Prompt the user to specify the directory path, volume group name, and logical group name
-# Prompt user for physical disk name
+# Prompt the user to specify disk,  the directory path, volume group name, logical group name, and file system type
 read -p "Enter the name of the physical disk to add (e.g. sdb): " choice_disk
 read -p "Enter the mount directory path: " mount_dir
 read -p "Enter the volume group name: " vg_name
@@ -59,10 +58,9 @@ if [[ ! -z $(mount | grep "$mount_dir") ]]; then
 # Add an entry to /etc/fstab to mount the logical volume at boot
 echo "/dev/$vg_name/$lv_name $mount_dir $fs_type defaults 0 0" >> /etc/fstab
 
-  # Display the available space on the mounted logical volume
-  echo "Available space on logical volume:"
-  df -h $mount_dir
+# Display the available space on the mounted logical volume
+echo "Available space on logical volume:"
+ df -h $mount_dir
 else
   echo "Failed to mount disk at $mount_dir"
 fi
-
