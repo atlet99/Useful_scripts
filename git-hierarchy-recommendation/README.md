@@ -36,6 +36,14 @@ It will be abstract info, but I don't know that write me here. If you have an id
   touch README.md
   ```
 - Open the README.md file in your preferred text editor (like VIM, NANO, VSCode and etc) and add a brief description of the project and any instructions for getting started. Usually, we have title and short definitions about project.
+- To check the status of your repository and see which files have been modified, added, or deleted, use the git status command:
+  ```
+  git status
+  ```
+- To view the differences between the working directory and the staging area, use the git diff command:
+  ```
+  git diff
+  ```
 - Add the README.md file to Git:
   ```
   git add README.md
@@ -59,6 +67,18 @@ It will be abstract info, but I don't know that write me here. If you have an id
 - Push the nonprod branch to the remote repository:
   ```
   git push -u origin nonprod
+  ```
+- To view information about the last commit in your Git repository, you can use the git log command:
+  ```
+  git log
+  ```
+- If you only want to see the most recent commit, you can use the git log -1 command:
+  ```
+  git log -1
+  ```
+- You can also use the git show command to view information about the most recent commit:
+  ```
+  git show
   ```
 
 ## A little bit about best practices for README.md files
