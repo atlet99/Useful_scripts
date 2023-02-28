@@ -6,7 +6,7 @@ It will be abstract info, but I don't know that write me here. If you have an id
 - Title: Default project
 - Author: Someone else
 - Ticket: [Here's a link](https://github.com/atlet99/Useful_scripts/tree/main/git-hierarchy-recommendation)
-- Ticket short description: Here's short info about project and IT Owner Division
+  - Ticket short description: Here's short info about project and IT Owner Division
 
 ##  Tips for create default project
 - Create a new directory for your project (your name instead of project-name):
