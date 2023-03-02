@@ -35,7 +35,7 @@ Enjoy your work and have a great day!
 cp /etc/motd /root/motd.bak
 
 # Add the message to the MOTD
-echo "$message" >> /etc/motd
+echo "$message" > /etc/motd
 
 
 
