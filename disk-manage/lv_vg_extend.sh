@@ -23,7 +23,8 @@ function extend_vg {
 function extend_lv {
     lv_name=$1
     echo "You are extending LV $lv_name. This may cause data corruption, so please make sure you have a backup before proceeding."
-    sudo lvextend -r -l +100%FREE /dev/mapper/$lv_name
+    sudo lvextend -r -l +100%FREE /dev/mapper/$vg_name-$lv_name
+    sudo resize2fs /dev/mapper/$vg_name-$lv_name
 }
 
 # Get list of VG/LV
