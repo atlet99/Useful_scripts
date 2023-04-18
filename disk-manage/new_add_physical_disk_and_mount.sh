@@ -56,7 +56,7 @@ if [[ ! -z $(mount | grep "$mount_dir") ]]; then
   echo "Disk successfully added and mounted at $mount_dir"
 
 # Add an entry to /etc/fstab to mount the logical volume at boot
-echo "/dev/$vg_name/$lv_name $mount_dir $fs_type defaults 0 0" >> /etc/fstab
+echo "/dev/$vg_name/$lg_name $mount_dir $fs_type defaults 0 0" >> /etc/fstab
 
 # Display the available space on the mounted logical volume
 echo "Available space on logical volume:"
