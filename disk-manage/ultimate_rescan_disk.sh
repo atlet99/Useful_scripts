@@ -27,7 +27,7 @@ mpath_values=$(pvs --noheadings -o pv_name | awk '{print $1}')
 check_error "Failed to retrive mpath values, plz check your syntax"
 
 # Check if there are no mpath values (hard check)
-if [[ -z "$mpath_values"]];
+if [[ -z "$mpath_values" ]];
     then
         echo "No mpath found. Script stopped..."
         exit 0
@@ -35,7 +35,7 @@ fi
 
 # Iterate over each mpath and try to run pvresize command with each values
 for mpath in $mpath_values; do
-    if [[ -e "$mpath"]];
+    if [[ -e "$mpath" ]];
         then
             pvresize "$mpath"
             check_error "Failed to resize $mpath"
