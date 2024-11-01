@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.test.easy-service-startup</string>
+    <key>UserName</key>
+    <string>testlogin</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/bin/ssh</string>
+      <string>-l</string>
+      <string>user_server</string>
+      <string>-F</string>
+      <string>/Users/your_username/.ssh/config</string>
+      <string>-NT</string>
+      <string>-o</string>
+      <string>ForwardAgent=yes</string>
+      <string>-o</string>
+      <string>ServerAliveInterval=60</string>
+      <string>-o</string>
+      <string>ExitOnForwardFailure=yes</string>
+      <string>-L</string>
+      <string>0.0.0.0:6447:192.168.0.3:6443</string>
+      <string>8.15.1.4</string>
+    </array>
+    <key>KeepAlive</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/ssh-tunnel.com.test.easy-service-startup.out</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/ssh-tunnel.com.test.easy-service-startup.err</string>
+  </dict>
+</plist>
